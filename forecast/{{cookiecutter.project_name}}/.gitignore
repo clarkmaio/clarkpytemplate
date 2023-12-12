@@ -1,0 +1,4 @@
+.idea
+*.pyc
+*.xml
+{{cookiecutter.project_name}}/log/*
