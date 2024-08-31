@@ -1,5 +1,5 @@
 # {{cookiecutter.project_name}}
-### Author: {{cookiecutter.author}}
+### Author: {{cookiecutter.author_name}}
 The entry point is `src/__main__.py`.
 You are suppose the entry point for every purpose and control the program using parser and config.
 
