@@ -1,0 +1,26 @@
+log:
+  path: /home/clarkmaio/Scrivania/
+  level: INFO
+
+
+databse:
+  username: myuser
+  password: mypassword
+
+
+
+path:
+  plot: plot_path
+  model: model_path
+  report: report_path
+
+
+
+mlflow: none
+
+prefect: none
+
+
+
+VAR1: 1
+VAR2: 10

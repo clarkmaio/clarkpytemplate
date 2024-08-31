@@ -1,0 +1,10 @@
+.idea
+*.pyc
+*.xml
+
+**/__pycache__/
+
+
+# Gitignore log and data folders. Only code in git.
+/log/*
+/data/*

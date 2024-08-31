@@ -1,0 +1,11 @@
+mode:
+  default: test
+
+
+number:
+  default: [1,2]
+  nargs: '*'
+
+
+boolean_var:
+  default: false
