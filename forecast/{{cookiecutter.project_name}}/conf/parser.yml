@@ -1,0 +1,8 @@
+mode:
+  default: train
+  help: 'Mode to run. Choose between train, predict, gridsearch'
+
+
+model:
+  default: [LinearRegression]
+  nargs: '*'

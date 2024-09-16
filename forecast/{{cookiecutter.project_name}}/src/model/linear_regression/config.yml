@@ -1,0 +1,15 @@
+
+# ---------------------------------------- Default parameters ----------------------------------
+default_params:
+  fit_intercept: False
+
+
+
+
+
+# ---------------------------------------- Data transformation ----------------------------------
+data_transformer:
+  - type: dropna
+    subset_train: ['target']
+
+

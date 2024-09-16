@@ -19,8 +19,3 @@ path:
 mlflow: none
 
 prefect: none
-
-
-
-VAR1: 1
-VAR2: 10
