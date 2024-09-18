@@ -1,40 +1,19 @@
 
 import os
 import yaml
-from typing import Dict
 from prefect import flow
-from prefect.logging import get_logger
-import logging
 from datetime import datetime
-from pathlib import Path
-
+from time import time
 from clarkpy_essentials import ParserManager, Context, DataCatalog
 
 from src.pipeline.train import TrainPipeline
-
-
-
-# TODO REFACTORING
-def setup_logger(log_file_name: str, log_config: Dict):
-    logger = get_logger()
-
-    # Console handler
-    logger.setLevel(level=log_config['level'])
-
-    # file handler
-    filename = os.path.join(log_config['filepath'], log_file_name)
-    fileHandler = logging.FileHandler(filename=filename)
-    fileHandler.setLevel(level=log_config['level'])
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    fileHandler.setFormatter(formatter)
-    logger.addHandler(fileHandler)
-
-
-    return logger
-
+from src.log import setup_logger
 
 @flow(name='main')
 def main(context: Context):
+
+    start_time = time()
+    context.logger.info('Program started')
 
     if context.parser['mode'] == 'train':
         TrainPipeline(context = context)
@@ -45,9 +24,10 @@ def main(context: Context):
     else:
         raise NotImplementedError(f"Unknown mode {context.parser['mode']}")
 
+    end_time = time()
+    context.logger.info(f'Program terminated - {(end_time - start_time):.1f}')
+
     return
-
-
 
 
 
@@ -57,21 +37,25 @@ if __name__ == '__main__':
 
     SOURCE_PATH = os.getcwd()
 
+    # ---------------------- DEFINE CONTEXT ----------------------
     # Load parser
     PARSER_PATH = os.path.join(SOURCE_PATH, 'conf', 'parser.yml')
     parser_args = ParserManager.load(path=PARSER_PATH)
     
-    # Load config file
+    # Load config
     CONFIG_PATH = os.path.join(SOURCE_PATH, 'conf', 'config.yml')
     config = yaml.safe_load(open(CONFIG_PATH, 'r'))
 
-    # Load data catalg
+    # Load data catalog
     DATA_CATALOG_PATH = os.path.join(SOURCE_PATH, 'conf', 'catalog.yml')
     catalog = DataCatalog(catalog=DATA_CATALOG_PATH, source_path = SOURCE_PATH)
 
-    # Set logger
+    # Setup logger
     log_file_name = f"{datetime.now().strftime('%Y%m%d_%H%M')}_test.log"
-    _ = setup_logger(log_file_name=log_file_name, log_config=config['log'])
-    
-    context = Context(parser=parser_args, config = config, catalog=catalog)
+    logger = setup_logger(log_file_name=log_file_name, log_config=config['log'])
+
+    context = Context(parser=parser_args, config = config, catalog=catalog, logger=logger)
+
+
+    # ---------------------- START PROGRAM ----------------------
     main(context=context)

@@ -1,4 +1,15 @@
 
 log:
-  level: DEBUG
-  filepath: /home/clarkmaio/Scrivania/
+  console:
+    level: DEBUG
+
+  file:
+    level: DEBUG
+    filepath: ./log/
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+
+
+path:
+  report: ''
+  plot: ''

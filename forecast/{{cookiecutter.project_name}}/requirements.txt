@@ -1,1 +1,5 @@
 git+https://github.com/clarkmaio/clarkpy_essentials.git
+pandas==2.0.3
+prefect==2.20.4
+scikit-learn==1.2.2
+numpy==1.26.4
