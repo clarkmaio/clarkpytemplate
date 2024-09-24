@@ -5,7 +5,7 @@ Here you will find some cookie cutter templates I've created.
 Just find the template you are interested in and use the following command from your terminal:
 
 
-Example with template `standard`
+Example with template `forecast`
 ```
-cookiecutter https://github.com/clarkmaio/cookiecutter_template.git --directory=standard
+cookiecutter https://github.com/clarkmaio/cookiecutter_template.git --directory=forecast
 ```
