@@ -1,9 +1,0 @@
-
-
-
-
-
-# ------------------------------- Model config
-LinearRegressionConf:
-  type: yaml
-  filepath: src/model/linear_regression/config.yml

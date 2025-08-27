@@ -1,0 +1,3 @@
+/* groovylint-disable CompileStatic, NoDef, UnusedVariable, VariableName, VariableTypeRequired */
+@Library('jenkins-shared-library') _
+buildPythonLib srcFolder:'{{cookiecutter.package_name}}', notificationRecipients: '{{cookiecutter.author_mail}}', package_name: '{{cookiecutter.package_name}}', lite:true

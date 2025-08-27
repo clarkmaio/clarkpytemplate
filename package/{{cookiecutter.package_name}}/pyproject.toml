@@ -1,0 +1,16 @@
+[project]
+name = "{{cookiecutter.package_name}}"
+version = "0.1.0"
+description = ""
+authors = [
+	{name = "{{cookiecutter.author_name}}", email="{{cookiecutter.author_mail}}"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+
+
