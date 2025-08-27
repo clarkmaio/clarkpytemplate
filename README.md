@@ -1,17 +1,12 @@
-# Cookiecutter template
 
-Clone this templates without git cloning it.
+# Cookiecutter templates
+Here you will find some cookie cutter templates I've created.
+
+**There is no need to clone this repository. **
+Just find the template you are interested in and use the following command from your terminal:
 
 
-
-Create first an environment with cookicutter installed (this env is just to copy the template, `cookiecutter` package is not needed for the package it self)
+Example with template `application`
 ```
-conda create --name cookicutter 
-pip install cookiecutter
-```
-
-Clone template with the terminal command:
-```
-# Example clone template "application"
-cookiecutter http://gitrepo:7990/scm/uq/fp_cookiecutter.git --directory=application
+cookiecutter https://github.com/clarkmaio/clarkpytemplate.git --directory=application
 ```
